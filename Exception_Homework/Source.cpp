@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <string>
 using namespace std;
 
@@ -98,7 +99,45 @@ void main()
 	//}
 	////catch (...) { cout << " Default (...) worked! " << endl; }
 
+	try
+	{
+		
+		Water water(1979, 4243, 3465, Water::LAKE);
+	}
+	catch (const Exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
+	catch (const string& ex)
+	{
+		cout << ex << endl;
+	}
+	/*catch (...)
+	{
+		cout << "worked default" << endl;
+	}*/
 
+	// task with vector
+
+	try
+	{
+		vector<string> num;
+		num.push_back("1");
+		num.push_back("2");
+		num.push_back("3");
+		num.push_back("4");
+		num.at(7) = 7;
+		for (auto& i : num)
+		{
+			cout << i << endl;
+		}
+		
+
+	}
+	catch (out_of_range& errMessage)
+	{
+		cout << errMessage.what() << endl;
+	}
 
 }
 
